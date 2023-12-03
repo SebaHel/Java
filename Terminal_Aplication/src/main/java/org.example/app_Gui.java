@@ -2,9 +2,15 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class app_Gui {
+
+
+    ArrayList<JButton> Buttons = new ArrayList<>();
+
     app_Gui() {
 
         JLabel Terminal = new JLabel("Terminal");
@@ -13,17 +19,20 @@ public class app_Gui {
         Terminal.setPreferredSize(new Dimension(200, 40));
         Terminal.setFont(new Font("Ariel", Font.BOLD, 20));
 
-        ArrayList<JButton> Buttons = new ArrayList<>();
 
-        JButton admin_button = new JButton("Admin Board");
-        JButton show_Planes = new JButton("Show_Planes");
-        Buttons.add(show_Planes);
-        Buttons.add(admin_button);
+
+        Buttons.add(new JButton("Show avaible"));
+        Buttons.add(new JButton("Show unavaible"));
+        Buttons.add(new JButton("Show Full"));
+        Buttons.add(new JButton("Show NotFull"));
+        Buttons.add(new JButton("Update"));
+
 
         for (int i = 0; i < Buttons.size(); i++) {
             Buttons.get(i).setBackground(Color.cyan);
             Buttons.get(i).setFont(new Font("Ariel", Font.BOLD, 20));
             Buttons.get(i).setPreferredSize(new Dimension(200, 40));
+            Buttons.get(i).addActionListener(e -> System.out.println("poo"));
         }
 
 
@@ -33,8 +42,9 @@ public class app_Gui {
         left_panel.setSize(200, 800);
         left_panel.setVisible(true);
         left_panel.add(Terminal);
-        left_panel.add(show_Planes);
-        left_panel.add(admin_button);
+        for (int i = 0; i < Buttons.size(); i++) {
+            left_panel.add(Buttons.get(i));
+        }
 
 
         JPanel right_panel = new JPanel();
@@ -53,5 +63,4 @@ public class app_Gui {
 
 
     }
-
 }
