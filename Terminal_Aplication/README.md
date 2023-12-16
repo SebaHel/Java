@@ -1,6 +1,6 @@
 This Project is Simple Gui Airport-Terminal
 
-They are Clients which can booked the flight, Plane which has list of Client Objects and nuber of seats which prevents
+They are Clients which can book the flight, Plane which has list of Client Objects and nuber of seats which prevents
 from overcrowd, Pesonel have positions and are assigned to new created planes. Hangar and InAir store created planes.
 
 Terminal have the methods:
