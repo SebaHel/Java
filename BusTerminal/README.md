@@ -1,4 +1,5 @@
-Web application used for managing bus terminal which is using:
+Web application used for managing bus terminal User can connect to database and Add and delete Bus from Database.
+Technology Used:
 -Spring Boot
 -Spring MVC
 -Spring Theamleaf
