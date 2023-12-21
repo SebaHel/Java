@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Bus_Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Bus"><h1 class="display-4">Bus Terminal</h1></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Bus/new"><h1 class="display-4">Add Bus</h1></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="row">
+
+</div>
+<div class="container">
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Lane</th>
+            <th>From_Location</th>
+            <th>Destiantion</th>
+            <th>Arrival_Time</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each = "bus: ${bus}">
+                <td th:text = "${bus.id}"></td>
+                <td th:text = "${bus.lane}"></td>
+                <td th:text = "${bus.fromLocation}"></td>
+                <td th:text = "${bus.destination}"></td>
+                <td th:text = "${bus.localTime}"></td>
+                <td>
+
+                    <a th:href = "@{/Bus/{id}(id=${bus.id})}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
