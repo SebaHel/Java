@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Terminal - Add Task</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm" style="background-color: #333;">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/Task"><h1 class="display-4 text-light">Task Terminal</h1></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Task/new"><h1 class="display-4 text-light">Add Task</h1></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4 form-container rounded p-4" style="background-color: #333;">
+  <h2 class="text-light">Add New Task</h2>
+  <form method="POST" action="/Task/new" object="task">
+    <div class="mb-3">
+      <label for="title" class="form-label text-light">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label text-light">Description</label>
+      <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label text-light">Task Categories</label>
+      <select class="form-select" id="status" name="status" required>
+        <option th:each="category : ${T(com.example.taskManager.DataBaseTableData.TaskCategories).values()}"
+                th:value="${category}" th:text="${category}"></option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="priority" class="form-label text-light">Priorities</label>
+      <select class="form-select" id="priority" name="priority" required>
+        <option value="LOW">Low</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HIGH">High</option>
+        <option value="CRITICAL">Critical</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </form>
+</div>
+
+</body>
+</html>

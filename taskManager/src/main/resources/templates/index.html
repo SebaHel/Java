@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Task Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-brand">
+            <h1><a href="Task" style="color: white; text-decoration: none;">Task Terminal</a></h1>
+            <h1><a class="nav-link" href="Task/new">Add Task</a></h1>
+        </div>
+    </div>
+</nav>
+
+<div class="sidebar">
+    <ul>
+        <li><h5 style="color:Orange">Task Categories</h5>
+            <ul>
+                <li><h6><a th:href="@{/Task/category1}">WORK</a></h6></li>
+                <li><h6><a th:href="@{/Task/category2}">SCHOOL</a></h6></li>
+                <li><h6><a th:href="@{/Task/category3}">HOME</a></h6></li>
+                <li><h6><a th:href="@{/Task/category4}">PERSONAL</a></h6></li>
+                <li><h6><a th:href="@{/Task/category5}">OTHER</a></h6></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Task Categories</th>
+            <th>Priorities</th>
+            <th>Time Left</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}"></td>
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.status}"></td>
+            <td th:text="${task.priority}"></td>
+            <td th:text="${task.deadline}"></td>
+            <td>
+                <a th:href="@{/Task/{id}/delete(id=${task.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
